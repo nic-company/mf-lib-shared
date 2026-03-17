@@ -2,7 +2,7 @@
 node_modules/
 
 # Build output
-dist/
+# dist/ # 배포된 폴더가 필요하므로 dist를 배포해야함.
 
 # Environment variables
 .env

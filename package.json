@@ -24,6 +24,9 @@
     "./config/eslint/base": "./dist/config/eslint/base.js",
     "./config/eslint/react": "./dist/config/eslint/react.js"
   },
+  "files": [
+		"dist"
+	],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
