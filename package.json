@@ -22,7 +22,8 @@
       "require": "./dist/config/prettier/index.js"
     },
     "./config/eslint/base": "./dist/config/eslint/base.js",
-    "./config/eslint/react": "./dist/config/eslint/react.js"
+    "./config/eslint/react": "./dist/config/eslint/react.js",
+    "./config/eslint/next": "./dist/config/eslint/next.js"
   },
   "files": [
 		"dist"
