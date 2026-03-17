@@ -1,12 +1,15 @@
 import '../../chunk-3QS3WKRC.mjs';
-import { jsx, Fragment } from 'react/jsx-runtime';
+import { jsxs, Fragment, jsx } from 'react/jsx-runtime';
 
 function DefaultLayout({ children }) {
   return (
     // <SidebarProvider>
     // <LayoutContent />
     // </SidebarProvider>
-    /* @__PURE__ */ jsx(Fragment, { children })
+    /* @__PURE__ */ jsxs(Fragment, { children: [
+      /* @__PURE__ */ jsx("span", { style: { color: "red" }, children: "DefaultLayout" }),
+      children
+    ] })
   );
 }
 

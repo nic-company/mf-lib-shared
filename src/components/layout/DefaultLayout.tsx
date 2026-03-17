@@ -10,6 +10,6 @@ export default function DefaultLayout({ children }: IDefaultLayoutProps): React.
 		// <SidebarProvider>
 			// <LayoutContent />
 		// </SidebarProvider>
-        <>{children}</>
+        <><span style={{ color: 'red' }}>DefaultLayout</span>{children}</>
 	);
 }

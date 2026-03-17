@@ -8,7 +8,10 @@ function DefaultLayout({ children }) {
     // <SidebarProvider>
     // <LayoutContent />
     // </SidebarProvider>
-    /* @__PURE__ */ jsxRuntime.jsx(jsxRuntime.Fragment, { children })
+    /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntime.jsx("span", { style: { color: "red" }, children: "DefaultLayout" }),
+      children
+    ] })
   );
 }
 
