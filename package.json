@@ -23,7 +23,12 @@
     },
     "./config/eslint/base": "./dist/config/eslint/base.js",
     "./config/eslint/react": "./dist/config/eslint/react.js",
-    "./config/eslint/next": "./dist/config/eslint/next.js"
+    "./config/eslint/next": "./dist/config/eslint/next.js",
+    "./components/layouts": {
+      "types": "./dist/components/layout/index.d.ts",
+      "import": "./dist/components/layout/index.mjs",
+      "require": "./dist/components/layout/index.js"
+    }
   },
   "files": [
 		"dist"

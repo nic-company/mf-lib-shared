@@ -12,4 +12,10 @@ declare const baseConfig: Linter.Config[];
  */
 declare const reactConfig: Linter.Config[];
 
-export { baseConfig as base, reactConfig as default, reactConfig as react };
+/**
+ * Next.js 앱 전용 ESLint 설정
+ * base 설정을 확장하고 React + Next.js 관련 규칙 추가
+ */
+declare const nextConfig: Linter.Config[];
+
+export { baseConfig as base, reactConfig as default, nextConfig as next, reactConfig as react };

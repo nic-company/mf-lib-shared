@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var chunk5WRI5ZAA_js = require('../../chunk-5WRI5ZAA.js');
 var js = require('@eslint/js');
-var globals = require('globals');
+var globals2 = require('globals');
 var tseslint = require('typescript-eslint');
 var react = require('eslint-plugin-react');
 var reactHooks = require('eslint-plugin-react-hooks');
@@ -13,7 +13,7 @@ var reactRefresh = require('eslint-plugin-react-refresh');
 function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
 var js__default = /*#__PURE__*/_interopDefault(js);
-var globals__default = /*#__PURE__*/_interopDefault(globals);
+var globals2__default = /*#__PURE__*/_interopDefault(globals2);
 var tseslint__default = /*#__PURE__*/_interopDefault(tseslint);
 var react__default = /*#__PURE__*/_interopDefault(react);
 var reactHooks__default = /*#__PURE__*/_interopDefault(reactHooks);
@@ -417,7 +417,7 @@ var baseConfig = [
     files: ["**/*.{js,ts,jsx,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals__default.default.browser
+      globals: globals2__default.default.browser
     },
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
@@ -464,9 +464,61 @@ var reactConfig = [
   }
 ];
 var react_default = reactConfig;
+var nextConfig = [
+  ...base_default,
+  reactHooks__default.default.configs.flat.recommended,
+  {
+    plugins: {
+      "react-refresh": reactRefresh__default.default
+    },
+    rules: {
+      "react-refresh/only-export-components": [
+        "warn",
+        { allowConstantExport: true }
+      ]
+    }
+  },
+  {
+    files: ["**/*.{ts,tsx,jsx}"],
+    plugins: {
+      react: react__default.default
+    },
+    languageOptions: {
+      globals: {
+        ...globals2__default.default.browser,
+        ...globals2__default.default.node
+      }
+    },
+    rules: {
+      "jsx-quotes": ["error", "prefer-double"],
+      "react/jsx-max-props-per-line": ["error", { maximum: 1 }],
+      "react-hooks/exhaustive-deps": "off",
+      "react-hooks/incompatible-library": "off",
+      "react-hooks/set-state-in-effect": "off",
+      "react/no-unescaped-entities": "off",
+      "import/no-anonymous-default-export": [
+        "warn",
+        {
+          // export default 할 때 익명 사용 금지 (new 함수만 허용함)
+          allowArray: false,
+          allowArrowFunction: false,
+          allowAnonymousClass: false,
+          allowAnonymousFunction: false,
+          allowCallExpression: true,
+          // The true value here is for backward compatibility
+          allowNew: true,
+          allowLiteral: false,
+          allowObject: false
+        }
+      ]
+    }
+  }
+];
+var next_default = nextConfig;
 
 exports.base = base_default;
 exports.default = react_default;
+exports.next = next_default;
 exports.react = react_default;
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map

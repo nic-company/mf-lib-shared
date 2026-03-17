@@ -1,6 +1,6 @@
 import { __commonJS, __toESM } from '../../chunk-3QS3WKRC.mjs';
 import js from '@eslint/js';
-import globals from 'globals';
+import globals2 from 'globals';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -404,7 +404,7 @@ var baseConfig = [
     files: ["**/*.{js,ts,jsx,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser
+      globals: globals2.browser
     },
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
@@ -451,7 +451,58 @@ var reactConfig = [
   }
 ];
 var react_default = reactConfig;
+var nextConfig = [
+  ...base_default,
+  reactHooks.configs.flat.recommended,
+  {
+    plugins: {
+      "react-refresh": reactRefresh
+    },
+    rules: {
+      "react-refresh/only-export-components": [
+        "warn",
+        { allowConstantExport: true }
+      ]
+    }
+  },
+  {
+    files: ["**/*.{ts,tsx,jsx}"],
+    plugins: {
+      react: react
+    },
+    languageOptions: {
+      globals: {
+        ...globals2.browser,
+        ...globals2.node
+      }
+    },
+    rules: {
+      "jsx-quotes": ["error", "prefer-double"],
+      "react/jsx-max-props-per-line": ["error", { maximum: 1 }],
+      "react-hooks/exhaustive-deps": "off",
+      "react-hooks/incompatible-library": "off",
+      "react-hooks/set-state-in-effect": "off",
+      "react/no-unescaped-entities": "off",
+      "import/no-anonymous-default-export": [
+        "warn",
+        {
+          // export default 할 때 익명 사용 금지 (new 함수만 허용함)
+          allowArray: false,
+          allowArrowFunction: false,
+          allowAnonymousClass: false,
+          allowAnonymousFunction: false,
+          allowCallExpression: true,
+          // The true value here is for backward compatibility
+          allowNew: true,
+          allowLiteral: false,
+          allowObject: false
+        }
+      ]
+    }
+  }
+];
+var next_default = nextConfig;
 
-export { base_default as base, react_default as default, react_default as react };
+export { base_default as base, react_default as default, next_default as next, react_default as react };
 //# sourceMappingURL=index.mjs.map
 //# sourceMappingURL=index.mjs.map
